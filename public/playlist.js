@@ -53,7 +53,8 @@
                 singlePlaylistPlaceholder.innerHTML = singlePlaylistCompiled(data.items);
                 playlistButtonPlaceholder.innerHTML = playlistButtonCompiled({id: playlist});
             }, function(err) {
-                singlePlaylistPlaceholder.innerHTML = "An error occurred, see console for details.";
+                singlePlaylistPlaceholder.innerHTML = "<b>An error occurred, see console for details.</b>";
+                playlistButtonPlaceholder.innerHTML = "";
                 console.error(err);
             });
         if (start_over) {
@@ -157,6 +158,7 @@
                 displayPlaylistTracks(user_id, plist_id, true);
                 alert("Successfully Cleared! Starting Over...");
             }, function(err) {
+                alert("An error occurred");
                 console.error(err);
             });
     });
@@ -172,7 +174,7 @@
                 displayPlaylistTracks(user_id, plist_id, true);
                 alert("Successfully Updated! Starting Over...");
             }, function(err) {
-                alert("An error occurred ");
+                alert("An error occurred");
                 console.error(err);
             });
     });
