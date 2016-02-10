@@ -59,6 +59,7 @@
             });
         if (start_over) {
             $('#results').hide();
+            $('#search_results').empty();
         } else {
             $('#results').show();
         }
