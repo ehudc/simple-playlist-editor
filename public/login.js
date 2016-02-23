@@ -1,20 +1,7 @@
 (function() {
     var stateKey = 'spotify_auth_state';
     var spotifyApi = new SpotifyWebApi();
-
-    /**
-     * Obtains parameters from the hash of the URL
-     * @return Object
-     */
-    function getHashParams() {
-        var hashParams = {};
-        var e, r = /([^&;=]+)=?([^&;]*)/g,
-            q = window.location.hash.substring(1);
-        while ( e = r.exec(q)) {
-            hashParams[e[1]] = decodeURIComponent(e[2]);
-        }
-        return hashParams;
-    }
+    var auth = new AuthParams();
 
     /**
      * Generates a random string containing numbers and letters
@@ -49,7 +36,7 @@
     };
 
 
-    var params = getHashParams();
+    var params = auth.getHashParams();
 
     var access_token = params.access_token,
         state = params.state,
